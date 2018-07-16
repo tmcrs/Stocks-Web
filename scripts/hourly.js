@@ -1,8 +1,9 @@
 //Get stock values
 var graphs = 0;
-var url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY";
+var url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY";
 var company = "&symbol=";
 var companyInput;
+var interval = "&interval=1min&outputsize=compact";
 var key = "&apikey=KHVVP1SVYDH5PPXB";
 var urlComplete;
 var keySet = [];
@@ -19,22 +20,9 @@ $("#input1").keydown(function(key){
 }
 });
 
-// $( document ).ajaxComplete(function() {
-//   $( ".log" ).text( "Triggered ajaxComplete handler." );
-//   graphNum++;
-//   if(graphNum === 2){
-//     graph = "container2";
-// } else if(graph === 3 ){
-//     graph = "container3";
-// }
-// keySet = [];
-// valSet = [];
-// keyValSet = [];
-// });
-
 function displayStocks(){
   companyInput = $("#input1").val().toUpperCase();
-  urlComplete = url + company + companyInput + key;
+  urlComplete = url + company + companyInput + interval + key;
 
   $.ajax({
     type : "GET",
@@ -45,7 +33,7 @@ function displayStocks(){
 
 
       $.each(data, function(index, item) {
-        if(index === "Time Series (Daily)"){
+        if(index === "Time Series (1min)"){
           $.each(item, function(key, value) {
             keySet.unshift(key);
             $.each(value, function(property, val) {
@@ -60,7 +48,7 @@ function displayStocks(){
                 keyValSet[i] = [date, Number(valSet[i])];
             }
 
-            Highcharts.chart(graph, {
+            Highcharts.chart("hourly_container", {
                 chart: {
                     zoomType: 'x'
                 },

@@ -13,19 +13,24 @@
 </head>
 <body>
 
+  <header>
+    <div class="topnav">
+      <a class="active" href="daily.html">Daily view</a>
+      <a href="hourly.html">Hourly view</a>
+      <a href="compare.html">Compare view</a>
+    </div>
+  </header>
+
   <div id = "input">
     <h1 id="topBar">Enter company code below</h1>
     <input name = "input1" type = "text" placeholder = "ex. GOOG" id="input1"></input>   
-    <button id = "button1">Add stock</button>
+    <button id = "button1">View stock</button>
     <h4 id = "results"></h4>
   </div>
 
-  <div id="container" style="width:100%; height:400px;"></div>
-  <div id="container2" style="width:100%; height:400px;"></div>
-  <div id="container3" style="width:100%; height:400px;"></div>
+  <div id="daily_container" style="width:100%; height:400px;"></div>
 
-
-  <script src="scripts/highcharts.js"></script>
+  <script src="scripts/daily.js"></script>
 
 </body>
 </html>

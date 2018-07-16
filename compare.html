@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<title>Stocks</title>
+	<link rel="icon" type"img/ico" href="images/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+</head>
+<body>
+	<header>
+		<div class="topnav">
+			<a href="daily.html">Daily view</a>
+			<a href="hourly.html">Hourly view</a>
+			<a class="active" href="compare.html">Compare view</a>
+		</div>
+	</header>
+	<div id = "input">
+		<h1 id="topBar">Enter company codes below</h1>
+		<input name = "input1" type = "text" placeholder = "ex. GOOG" id="input1"></input> 
+		<input name = "input2" type = "text" placeholder = "ex. AAPL" id="input2"></input>  
+		<button id = "button1">View stocks</button>
+		<h4 id = "results"></h4>
+	</div>
+
+	<div id="compare_container1" style="width:100%; height:400px;"></div>
+	<div id="compare_container2" style="width:100%; height:400px;"></div>
+
+	<script src="scripts/compare.js"></script>
+
+</body>
+</html>
